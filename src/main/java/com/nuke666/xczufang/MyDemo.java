@@ -11,4 +11,10 @@ public class MyDemo {
     public String hello() {
         return "HelloWorld";
     }
+
+    @GetMapping("/index")
+    @ResponseBody
+    public String index() {
+        return "This is index page!";
+    }
 }
