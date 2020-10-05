@@ -1,10 +1,10 @@
-package com.nuke666.xczufang;
+package com.nuke666.canteencomment;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class XcZufangApplicationTests {
+class CanteenCommentApplicationTests {
 
     @Test
     void contextLoads() {
