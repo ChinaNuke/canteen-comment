@@ -39,4 +39,51 @@ public class Comment {
     @Column(nullable = false)
     private String content;
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
+
+    public int getScoreForPrice() {
+        return scoreForPrice;
+    }
+
+    public void setScoreForPrice(int scoreForPrice) {
+        this.scoreForPrice = scoreForPrice;
+    }
+
+    public int getScoreForTaste() {
+        return scoreForTaste;
+    }
+
+    public void setScoreForTaste(int scoreForTaste) {
+        this.scoreForTaste = scoreForTaste;
+    }
+
+    public int getScoreForService() {
+        return scoreForService;
+    }
+
+    public void setScoreForService(int scoreForService) {
+        this.scoreForService = scoreForService;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 }
