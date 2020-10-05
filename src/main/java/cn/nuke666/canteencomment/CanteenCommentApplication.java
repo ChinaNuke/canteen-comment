@@ -1,4 +1,4 @@
-package com.nuke666.canteencomment;
+package cn.nuke666.canteencomment;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

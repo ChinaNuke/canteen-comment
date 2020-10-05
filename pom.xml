@@ -8,7 +8,7 @@
         <version>2.3.4.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.nuke666</groupId>
+    <groupId>cn.nuke666</groupId>
     <artifactId>canteen-comment</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>canteen-comment</name>

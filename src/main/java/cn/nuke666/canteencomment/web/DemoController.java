@@ -1,7 +1,7 @@
-package com.nuke666.canteencomment.web;
+package cn.nuke666.canteencomment.web;
 
-import com.nuke666.canteencomment.model.Demo;
-import com.nuke666.canteencomment.repository.DemoRepository;
+import cn.nuke666.canteencomment.model.Demo;
+import cn.nuke666.canteencomment.repository.DemoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,4 +1,4 @@
-package com.nuke666.canteencomment.model;
+package cn.nuke666.canteencomment.model;
 
 import javax.persistence.*;
 
