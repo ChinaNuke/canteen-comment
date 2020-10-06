@@ -1,6 +1,7 @@
 package cn.nuke666.canteencomment.model;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class Comment {
@@ -12,8 +13,14 @@ public class Comment {
     /**
      * 创建这条评价的用户id
      */
-    @Column
+    @Column(name = "user_id")
     private long userId;
+
+    /**
+     * 赞同这条评论的人数
+     */
+    @Column
+    private int approvals;
 
     /**
      * 价格评分（1-5分）
@@ -27,17 +34,20 @@ public class Comment {
     @Column(name = "score_for_taste", nullable = false)
     private int scoreForTaste;
 
-    /**
-     * 服务评分（1-5分）
-     */
-    @Column(name = "score_for_service", nullable = false)
-    private int scoreForService;
+    @Column
+    private String title;
 
     /**
      * 评价内容
      */
     @Column(nullable = false)
     private String content;
+
+    /**
+     * 评价时间
+     */
+    @Column
+    private Date comment_time;
 
     public long getId() {
         return id;
@@ -53,6 +63,14 @@ public class Comment {
 
     public void setUserId(long userId) {
         this.userId = userId;
+    }
+
+    public int getApprovals() {
+        return approvals;
+    }
+
+    public void setApprovals(int approvals) {
+        this.approvals = approvals;
     }
 
     public int getScoreForPrice() {
@@ -71,12 +89,12 @@ public class Comment {
         this.scoreForTaste = scoreForTaste;
     }
 
-    public int getScoreForService() {
-        return scoreForService;
+    public String getTitle() {
+        return title;
     }
 
-    public void setScoreForService(int scoreForService) {
-        this.scoreForService = scoreForService;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getContent() {
@@ -85,5 +103,13 @@ public class Comment {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Date getComment_time() {
+        return comment_time;
+    }
+
+    public void setComment_time(Date comment_time) {
+        this.comment_time = comment_time;
     }
 }

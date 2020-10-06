@@ -1,45 +1,69 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-    <title>食堂点评系统!</title>
+    <title>主页 - 食堂点评系统</title>
 </head>
-<body>
-<h1>食堂点评系统!</h1>
 
-<table class="table table-hover">
-    <thead class="thead-light">
-    <tr>
-        <th scope="col">#</th>
-        <th scope="col">用户</th>
-        <th scope="col">价格评分</th>
-        <th scope="col">味道评分</th>
-        <th scope="col">服务评分</th>
-        <th scope="col">评价</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="comment: ${comments}">
-        <th scope="row" th:text="${comment.id}">1</th>
-        <td th:text="${comment.userId}">Mark</td>
-        <td th:text="${comment.scoreForPrice}">Otto</td>
-        <td th:text="${comment.scoreForTaste}">Otto</td>
-        <td th:text="${comment.scoreForService}">Otto</td>
-        <td th:text="${comment.content}">Otto</td>
-    </tr>
-    </tbody>
-</table>
+<body class="bg-light">
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+    <a class="navbar-brand" href="#">食堂点评系统</a>
+    <!--    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"-->
+    <!--            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">-->
+    <!--        <span class="navbar-toggler-icon"></span>-->
+    <!--    </button>-->
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">主页 <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<main role="main" class="container">
+    <div class="mb-4">搜索框留</div>
+
+    <div th:each="comment:${comments}">
+        <div class="card border-success mb-4 shadow-sm">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col" th:text="|味道: ${comment.scoreForTaste}分|">味道: 5分</div>
+                    <div class="col" th:text="|价格: ${comment.scoreForPrice}分|">价格: 5分</div>
+                    <div class="col" th:text="|赞同: ${comment.approvals}人|">赞同: 11人</div>
+                    <div class="col">
+                        <button type="button" class="btn btn-outline-success">赞同</button>
+                    </div>
+                    <div class="col-3" th:text="|点评时间: ${comment.comment_time}|">点评时间: 2020年10月1日</div>
+                </div>
+            </div>
+            <div class="card-body text-success">
+                <h5 class="card-title" th:text="${comment.title}">特别好吃无可挑剔</h5>
+                <p class="card-text" th:text="${comment.content}">太好吃了太好吃了太好吃了！</p>
+                <a href="#" class="card-link text-right">查看详情</a>
+            </div>
+        </div>
+    </div>
+</main>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
 </body>
 </html>
