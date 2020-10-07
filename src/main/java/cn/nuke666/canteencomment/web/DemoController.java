@@ -20,4 +20,9 @@ public class DemoController {
         model.addAttribute("comments", commentService.getCommentList());
         return "list";
     }
+
+    @GetMapping("/create")
+    public String create() {
+        return "createoredit";
+    }
 }
