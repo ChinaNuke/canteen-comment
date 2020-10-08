@@ -13,13 +13,19 @@ public class Comment {
     /**
      * 创建这条评价的用户id
      */
-    @Column(name = "user_id")
+    @Column(name = "user_id", nullable = false)
     private long userId;
+
+    @Column(nullable = false)
+    private String canteen;
+
+    @Column(nullable = true)
+    private Integer window;
 
     /**
      * 赞同这条评论的人数
      */
-    @Column
+    @Column(nullable = false)
     private int approvals;
 
     /**
@@ -34,7 +40,7 @@ public class Comment {
     @Column(name = "score_for_taste", nullable = false)
     private int scoreForTaste;
 
-    @Column
+    @Column(nullable = false)
     private String title;
 
     /**
@@ -46,8 +52,9 @@ public class Comment {
     /**
      * 评价时间
      */
-    @Column
-    private Date comment_time;
+    @Column(name = "comment_time", nullable = false)
+    @Temporal(TemporalType.DATE)
+    private Date commentTime;
 
     public long getId() {
         return id;
@@ -63,6 +70,22 @@ public class Comment {
 
     public void setUserId(long userId) {
         this.userId = userId;
+    }
+
+    public String getCanteen() {
+        return canteen;
+    }
+
+    public void setCanteen(String canteen) {
+        this.canteen = canteen;
+    }
+
+    public Integer getWindow() {
+        return window;
+    }
+
+    public void setWindow(Integer window) {
+        this.window = window;
     }
 
     public int getApprovals() {
@@ -105,11 +128,11 @@ public class Comment {
         this.content = content;
     }
 
-    public Date getComment_time() {
-        return comment_time;
+    public Date getCommentTime() {
+        return commentTime;
     }
 
-    public void setComment_time(Date comment_time) {
-        this.comment_time = comment_time;
+    public void setCommentTime(Date commentTime) {
+        this.commentTime = commentTime;
     }
 }
