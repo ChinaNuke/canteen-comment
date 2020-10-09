@@ -7,54 +7,77 @@ import java.util.Date;
 public class Comment {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     /**
      * 创建这条评价的用户id
      */
-    @Column(name = "user_id", nullable = false)
-    private long userId;
+    private Long userId;
 
-    @Column(nullable = false)
-    private String canteen;
+    /**
+     * 菜品所在的餐厅
+     */
+    private Integer canteen;
 
+    /**
+     * 菜品所在窗口号
+     */
     @Column(nullable = true)
-    private Integer window;
+    private Integer whichWindow;
+
+    /**
+     * 菜品名称
+     */
+    private String food;
 
     /**
      * 赞同这条评论的人数
      */
-    @Column(nullable = false)
-    private int approvals;
+    private Integer approvals;
 
     /**
      * 价格评分（1-5分）
      */
-    @Column(name = "score_for_price", nullable = false)
-    private int scoreForPrice;
+    private Integer scoreForPrice;
 
     /**
      * 味道评分（1-5分）
      */
-    @Column(name = "score_for_taste", nullable = false)
-    private int scoreForTaste;
+    private Integer scoreForTaste;
 
-    @Column(nullable = false)
+    /**
+     * 评价标题
+     */
     private String title;
 
     /**
      * 评价内容
      */
-    @Column(nullable = false)
     private String content;
 
     /**
      * 评价时间
      */
-    @Column(name = "comment_time", nullable = false)
-    @Temporal(TemporalType.DATE)
+//    @Temporal(TemporalType.DATE)
     private Date commentTime;
+
+    public Comment(long id, long userId, int canteen, int whichWindow, String food, int approvals, int scoreForPrice, int scoreForTaste, String title, String content, Date commentTime) {
+        this.id = id;
+        this.userId = userId;
+        this.canteen = canteen;
+        this.whichWindow = whichWindow;
+        this.food = food;
+        this.approvals = approvals;
+        this.scoreForPrice = scoreForPrice;
+        this.scoreForTaste = scoreForTaste;
+        this.title = title;
+        this.content = content;
+        this.commentTime = commentTime;
+    }
+
+    public Comment() {
+    }
 
     public long getId() {
         return id;
@@ -72,20 +95,28 @@ public class Comment {
         this.userId = userId;
     }
 
-    public String getCanteen() {
+    public int getCanteen() {
         return canteen;
     }
 
-    public void setCanteen(String canteen) {
+    public void setCanteen(int canteen) {
         this.canteen = canteen;
     }
 
-    public Integer getWindow() {
-        return window;
+    public int getWhichWindow() {
+        return whichWindow;
     }
 
-    public void setWindow(Integer window) {
-        this.window = window;
+    public void setWhichWindow(int whichWindow) {
+        this.whichWindow = whichWindow;
+    }
+
+    public String getFood() {
+        return food;
+    }
+
+    public void setFood(String food) {
+        this.food = food;
     }
 
     public int getApprovals() {
@@ -135,4 +166,5 @@ public class Comment {
     public void setCommentTime(Date commentTime) {
         this.commentTime = commentTime;
     }
+
 }
