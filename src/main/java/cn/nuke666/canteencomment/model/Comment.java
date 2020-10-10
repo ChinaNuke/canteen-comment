@@ -3,6 +3,10 @@ package cn.nuke666.canteencomment.model;
 import javax.persistence.*;
 import java.util.Date;
 
+/**
+ * TODO: 解决属性 canteen 的转换，commentTime 的显示
+ */
+
 @Entity
 public class Comment {
 
@@ -29,7 +33,7 @@ public class Comment {
     /**
      * 菜品名称
      */
-    private String food;
+    private String foodName;
 
     /**
      * 赞同这条评论的人数
@@ -62,12 +66,12 @@ public class Comment {
 //    @Temporal(TemporalType.DATE)
     private Date commentTime;
 
-    public Comment(long id, long userId, int canteen, int whichWindow, String food, int approvals, int scoreForPrice, int scoreForTaste, String title, String content, Date commentTime) {
+    public Comment(Long id, Long userId, Integer canteen, Integer whichWindow, String foodName, Integer approvals, Integer scoreForPrice, Integer scoreForTaste, String title, String content, Date commentTime) {
         this.id = id;
         this.userId = userId;
         this.canteen = canteen;
         this.whichWindow = whichWindow;
-        this.food = food;
+        this.foodName = foodName;
         this.approvals = approvals;
         this.scoreForPrice = scoreForPrice;
         this.scoreForTaste = scoreForTaste;
@@ -79,67 +83,67 @@ public class Comment {
     public Comment() {
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public long getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
-    public int getCanteen() {
+    public Integer getCanteen() {
         return canteen;
     }
 
-    public void setCanteen(int canteen) {
+    public void setCanteen(Integer canteen) {
         this.canteen = canteen;
     }
 
-    public int getWhichWindow() {
+    public Integer getWhichWindow() {
         return whichWindow;
     }
 
-    public void setWhichWindow(int whichWindow) {
+    public void setWhichWindow(Integer whichWindow) {
         this.whichWindow = whichWindow;
     }
 
-    public String getFood() {
-        return food;
+    public String getFoodName() {
+        return foodName;
     }
 
-    public void setFood(String food) {
-        this.food = food;
+    public void setFoodName(String food) {
+        this.foodName = food;
     }
 
-    public int getApprovals() {
+    public Integer getApprovals() {
         return approvals;
     }
 
-    public void setApprovals(int approvals) {
+    public void setApprovals(Integer approvals) {
         this.approvals = approvals;
     }
 
-    public int getScoreForPrice() {
+    public Integer getScoreForPrice() {
         return scoreForPrice;
     }
 
-    public void setScoreForPrice(int scoreForPrice) {
+    public void setScoreForPrice(Integer scoreForPrice) {
         this.scoreForPrice = scoreForPrice;
     }
 
-    public int getScoreForTaste() {
+    public Integer getScoreForTaste() {
         return scoreForTaste;
     }
 
-    public void setScoreForTaste(int scoreForTaste) {
+    public void setScoreForTaste(Integer scoreForTaste) {
         this.scoreForTaste = scoreForTaste;
     }
 

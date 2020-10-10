@@ -55,10 +55,7 @@
                     <div class="col-3">
                         <select class="custom-select">
                             <option selected value="">选择餐厅</option>
-                            <option value="1">黄山KK</option>
-                            <option value="2">大佳一</option>
-                            <option value="3">双凤老鹅汤</option>
-                            <option value="4">民族餐厅</option>
+                            <option value="" th:each="c:${canteens}" th:value="${c.id}" th:text="${c.name}"></option>
                         </select>
                     </div>
                     <div class="col-4">
@@ -71,28 +68,27 @@
                         <button type="button" class="btn btn-outline-success btn-block">创建点评</button>
                     </div>
                 </div>
-
-
             </form>
 
         </div>
     </div>
 
 
-    <div th:each="comment:${comments}">
-        <div class="card border-success mb-4" style="">
+    <div th:each="comment:${comments}" th:object="${comment}" th:with="isGood=(*{scoreForTaste &gt; 2}) and (*{scoreForPrice &gt; 2})">
+        <!-- 卡片自动颜色，好评绿色框，差评红色框 -->
+        <div class="card mb-4" th:classappend="${isGood} ? 'border-success' : 'border-danger'">
             <div class="card-header">
                 <div class="row align-items-center mt-2">
-                    <div class="col-3">地点：大佳一20号窗口</div>
-                    <div class="col-7">菜品：西红柿炒韭菜</div>
+                    <div class="col-3" th:text="|地点: *{canteen} | + (*{whichWindow}?(*{whichWindow} + '号窗口'):'')">地点：大佳一20号窗口</div>
+                    <div class="col-7" th:text="|菜品: *{foodName}|">菜品：西红柿炒韭菜</div>
                 </div>
                 <hr class="my-2">
                 <div class="row align-items-center">
-                    <div class="col" th:text="|味道: ${comment.scoreForTaste}分|">味道: 5分</div>
-                    <div class="col" th:text="|价格: ${comment.scoreForPrice}分|">价格: 5分</div>
-                    <div class="col" th:text="|赞同: ${comment.approvals}人|">赞同: 11人</div>
+                    <div class="col" th:text="|味道: *{scoreForTaste}分|">味道: 5分</div>
+                    <div class="col" th:text="|价格: *{scoreForPrice}分|">价格: 5分</div>
+                    <div class="col" th:text="|赞同: *{approvals}人|">赞同: 11人</div>
                     <div class="col">
-                        <button type="button" class="btn btn-outline-success btn-sm">
+                        <button type="button" class="btn btn-sm" th:classappend="${isGood}?'btn-outline-success':'btn-outline-danger'">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-hand-thumbs-up"
                                  fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
@@ -101,12 +97,12 @@
                             赞同
                         </button>
                     </div>
-                    <div class="col-3 text-right" th:text="|${comment.commentTime}|">2020年10月1日</div>
+                    <div class="col-3 text-right" th:text="|*{commentTime}|">2020年10月1日</div>
                 </div>
             </div>
-            <div class="card-body text-success">
-                <h5 class="card-title" th:text="${comment.title}">特别好吃无可挑剔</h5>
-                <p class="card-text" th:text="${comment.content}">太好吃了太好吃了太好吃了！</p>
+            <div class="card-body" th:classappend="${isGood} ? 'text-success' : 'text-danger'">
+                <h5 class="card-title" th:text="*{title}">特别好吃无可挑剔</h5>
+                <p class="card-text" th:text="*{content}">太好吃了太好吃了太好吃了！</p>
                 <a href="#" class="card-link text-right">查看详情</a>
             </div>
         </div>

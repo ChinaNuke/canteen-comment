@@ -7,12 +7,12 @@ public class Canteen {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column(nullable = false)
     private String name;
 
-    public Canteen(Long id, String name) {
+    public Canteen(Integer id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -21,11 +21,11 @@ public class Canteen {
 
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -36,4 +36,5 @@ public class Canteen {
     public void setName(String name) {
         this.name = name;
     }
+
 }

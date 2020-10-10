@@ -1,5 +1,6 @@
 package cn.nuke666.canteencomment.web;
 
+import cn.nuke666.canteencomment.service.CanteenService;
 import cn.nuke666.canteencomment.service.CommentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,8 +16,12 @@ public class DemoController {
     @Resource
     private CommentService commentService;
 
+    @Resource
+    private CanteenService canteenService;
+
     @GetMapping("/list")
     public String list(Model model) {
+        model.addAttribute("canteens", canteenService.getCanteenList());
         model.addAttribute("comments", commentService.getCommentList());
         return "list";
     }
