@@ -1,6 +1,7 @@
 package cn.nuke666.canteencomment.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Canteen {
@@ -11,6 +12,9 @@ public class Canteen {
 
     @Column(nullable = false)
     private String name;
+
+    @OneToMany(mappedBy = "canteen")
+    private Set<Comment> comments;
 
     public Canteen(Integer id, String name) {
         this.id = id;

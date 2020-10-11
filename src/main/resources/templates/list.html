@@ -79,8 +79,8 @@
         <div class="card mb-4" th:classappend="${isGood} ? 'border-success' : 'border-danger'">
             <div class="card-header">
                 <div class="row align-items-center mt-2">
-                    <div class="col-3" th:text="|地点: *{canteen} | + (*{whichWindow}?(*{whichWindow} + '号窗口'):'')">地点：大佳一20号窗口</div>
-                    <div class="col-7" th:text="|菜品: *{foodName}|">菜品：西红柿炒韭菜</div>
+                    <div class="col-4" th:text="|地点: *{canteen.name} | + (*{whichWindow}?(*{whichWindow} + '号窗口'):'')">地点：大佳一 20号窗口</div>
+                    <div class="col-8" th:text="|菜品: *{foodName}|">菜品：西红柿炒韭菜</div>
                 </div>
                 <hr class="my-2">
                 <div class="row align-items-center">

@@ -1,12 +1,13 @@
 package cn.nuke666.canteencomment.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false, unique = true)
@@ -15,13 +16,14 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @Column
     private String gender;
 
-    @Column
     private String email;
 
-    public User(long id, String username, String password, String gender, String email) {
+    @OneToMany(mappedBy = "createdBy")
+    private Set<Comment> comments;
+
+    public User(Long id, String username, String password, String gender, String email) {
         this.id = id;
         this.username = username;
         this.password = password;

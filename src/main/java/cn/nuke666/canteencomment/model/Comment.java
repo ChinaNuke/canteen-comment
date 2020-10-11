@@ -14,25 +14,20 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    /**
-     * 创建这条评价的用户id
-     */
-    private Long userId;
+    @ManyToOne(optional = false)
+    private User createdBy;
 
     /**
      * 菜品所在的餐厅
      */
-    private Integer canteen;
+    @ManyToOne(optional = false)
+    private Canteen canteen;
 
     /**
      * 菜品所在窗口号
      */
-    @Column(nullable = true)
     private Integer whichWindow;
 
-    /**
-     * 菜品名称
-     */
     private String foodName;
 
     /**
@@ -66,9 +61,9 @@ public class Comment {
 //    @Temporal(TemporalType.DATE)
     private Date commentTime;
 
-    public Comment(Long id, Long userId, Integer canteen, Integer whichWindow, String foodName, Integer approvals, Integer scoreForPrice, Integer scoreForTaste, String title, String content, Date commentTime) {
+    public Comment(Long id, User createdBy, Canteen canteen, Integer whichWindow, String foodName, Integer approvals, Integer scoreForPrice, Integer scoreForTaste, String title, String content, Date commentTime) {
         this.id = id;
-        this.userId = userId;
+        this.createdBy = createdBy;
         this.canteen = canteen;
         this.whichWindow = whichWindow;
         this.foodName = foodName;
@@ -91,19 +86,19 @@ public class Comment {
         this.id = id;
     }
 
-    public Long getUserId() {
-        return userId;
+    public User getCreatedBy() {
+        return createdBy;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setCreatedBy(User createdBy) {
+        this.createdBy = createdBy;
     }
 
-    public Integer getCanteen() {
+    public Canteen getCanteen() {
         return canteen;
     }
 
-    public void setCanteen(Integer canteen) {
+    public void setCanteen(Canteen canteen) {
         this.canteen = canteen;
     }
 
