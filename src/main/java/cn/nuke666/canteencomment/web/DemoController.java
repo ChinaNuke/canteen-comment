@@ -19,13 +19,6 @@ public class DemoController {
     @Resource
     private CanteenService canteenService;
 
-    @GetMapping("/list")
-    public String list(Model model) {
-        model.addAttribute("canteens", canteenService.getCanteenList());
-        model.addAttribute("comments", commentService.getCommentList());
-        return "list";
-    }
-
     @GetMapping("/create")
     public String create() {
         return "createoredit";
