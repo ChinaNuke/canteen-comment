@@ -15,7 +15,12 @@
     <link rel="stylesheet" href="../static/css/amazeui.datatables.min.css" />
     <link rel="stylesheet" href="../static/css/app.css">
 	<style>
-		body{background: url(assets/img/4.jpg) no-repeat;background-size: cover;font-size: 16px;}
+        body {
+            /* 此处如果单页面测试会读取不到图片，运行时正常 */
+            background: url(../static/img/background.jpg) no-repeat;
+            background-size: cover;
+            font-size: 16px;
+        }
     </style>
 </head>
 
@@ -105,15 +110,15 @@
 
                     </a>
                 </li>
-				
+				<!--
 				<li class="sidebar-nav-link">
                     <a href="table-list.html">
                         <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 查看评价
                     </a>
                 </li>
-				
+				-->
 				<li class="sidebar-nav-link">
-                    <a href="sign-up.html">
+                    <a href="login.html">
                         <i class="am-icon-clone sidebar-nav-link-logo"></i> 注册
                      
                     </a>
@@ -154,10 +159,10 @@
                                 </div>
                                 <div class="am-u-sm-12 am-u-md-12 am-u-lg-3">
                                     <div class="am-input-group am-input-group-sm tpl-form-border-form cl-p">
-                                        <input type="text" class="am-form-field ">
+                                        <input type="text" class="am-form-field" placeholder="按菜品搜索..." aria-label="Search">
                                         <span class="am-input-group-btn">
-            <button class="am-btn  am-btn-default am-btn-success tpl-table-list-field am-icon-search" type="button"></button>
-          </span>
+                                            <button class="am-btn am-btn-primary am-btn-success am-icon-search" type="submit">搜索</button>
+                                        </span>
                                     </div>
                                 </div>
 
@@ -183,6 +188,7 @@
 														<a href="javascript:;">
                                                             <i class="am-icon-pencil"></i> 评价
                                                         </a>
+                                                    </div>
                                                 </td>
                                             </tr>
 											                                            <tr class="gradeX">
@@ -196,6 +202,7 @@
 														<a href="javascript:;">
                                                             <i class="am-icon-pencil"></i> 评价
                                                         </a>
+                                                    </div>
                                                 </td>
                                             </tr>
                                             

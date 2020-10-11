@@ -8,7 +8,6 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
     <link rel="stylesheet" href="../static/css/amazeui.datatables.min.css" th:href="@{css/amazeui.datatables.min.css}"/>
     <link rel="stylesheet" href="../static/css/amazeui.min.css" th:href="@{css/amazeui.min.css}"/>
     <link rel="stylesheet" href="../static/css/app.css" th:href="@{css/app.css}">
@@ -17,7 +16,7 @@
     <style>
         body {
             /* 此处如果单页面测试会读取不到图片，运行时正常 */
-            background: url(img/background.jpg) no-repeat;
+            background: url(../static/img/background.jpg) no-repeat;
             background-size: cover;
             font-size: 16px;
         }
@@ -106,6 +105,7 @@
                     <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 菜品列表
                 </a>
             </li>
+
             <li class="sidebar-nav-link">
                 <a href="createoredit.html">
                     <i class="am-icon-wpforms sidebar-nav-link-logo"></i> 提交评价
@@ -113,14 +113,16 @@
                 </a>
             </li>
 
+            <!--
             <li class="sidebar-nav-link">
                 <a href="table-list.html">
                     <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 查看评价
                 </a>
             </li>
+            -->
 
             <li class="sidebar-nav-link">
-                <a href="sign-up.html">
+                <a href="register.html">
                     <i class="am-icon-clone sidebar-nav-link-logo"></i> 注册
                 </a>
             </li>
@@ -150,22 +152,23 @@
                         </select>
                     </div>
                 </div>
-                <div class="am-u-sm-12 am-u-md-12 am-u-lg-3">
+                <div class="am-u-sm-5 am-u-md-12 am-u-lg-3">
                     <div class="am-input-group am-input-group-sm tpl-form-border-form cl-p">
-                        <input type="text" class="am-form-field" placeholder="按菜品搜索...">
+                        <input type="text" class="am-form-field" placeholder="按菜品搜索..." aria-label="Search">
                         <span class="am-input-group-btn">
-                                <button class="am-btn am-btn-default am-btn-success tpl-table-list-field am-icon-search"
-                                        type="button"></button>
-                            </span>
+                            <button class="am-btn am-btn-success am-icon-search" type="submit">搜索</button>
+                        </span>
                     </div>
                 </div>
                 <div class="am-u-sm-12 am-u-md-6 am-u-lg-6">
                     <div class="am-form-group">
                         <div class="am-btn-toolbar">
-                            <div class="am-btn-group am-btn-group-xs">
-                                <button type="button" class="am-btn am-btn-default am-btn-success"><span
+                            <div class="am-btn-group am-btn-group-xm">
+                                <a class="active" href="createoredit.html">
+                                    <button type="button" class="am-btn am-btn-default am-btn-success am-btn-xs" ><span
                                         class="am-icon-plus"></span> 创建点评
-                                </button>
+                                    </button>
+                                </a>
                             </div>
                         </div>
                     </div>
