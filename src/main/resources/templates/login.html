@@ -22,7 +22,7 @@
     <script type="text/javascript" src="js/message.js" ></script>
     <style type="text/css">
         body{background: url(../static/img/background.jpg) no-repeat;background-size: cover;font-size: 16px;}
-        .form{background: rgba(255,255,255,0.2);width:400px;margin:100px auto;}
+        .form{background: rgba(255,255,255,0.7);width:400px;margin:100px auto;}
         #login_form{display: block;}
         #register_form{display: none;}
         .fa{display: inline-block;top: 27px;left: 6px;position: relative;color: #ccc;}
@@ -48,25 +48,25 @@
 <div class="container">
     <div class="form row">
         <form class="form-horizontal col-sm-offset-3 col-md-offset-3" id="login_form">
-            <h3 class="form-title">Login to your account</h3>
+            <h1 class="form-title">欢迎登录</h1>
             <div class="col-sm-9 col-md-9">
                 <div class="form-group">
                     <i class="fa fa-user fa-lg"></i>
-                    <input class="form-control required" type="text" placeholder="Username" name="username" autofocus="autofocus" maxlength="20"/>
+                    <input class="form-control required" type="text" placeholder="用户名" name="username" autofocus="autofocus" maxlength="20"/>
                 </div>
                 <div class="form-group">
                     <i class="fa fa-lock fa-lg"></i>
-                    <input class="form-control required" type="password" placeholder="Password" name="password" maxlength="8"/>
+                    <input class="form-control required" type="password" placeholder="密码" name="password" maxlength="8"/>
                 </div>
                 <div class="form-group">
                     <label class="checkbox">
-                        <input type="checkbox" name="remember" value="1"/> Remember me
+                        <input type="checkbox" name="remember" value="1"/> 记住
                     </label>
                     <hr />
-                    <a href="javascript:;" id="register_btn" class="">Creat an account</a>
+                    <a href="javascript:;" id="register_btn" class="">创建账号</a>
                 </div>
                 <div class="form-group">
-                    <input type="submit" class="btn btn-success pull-right" value="Login "/>
+                    <input type="submit" class="btn btn-success pull-right" value="登录 "/>
                 </div>
             </div>
         </form>
@@ -74,23 +74,23 @@
 
     <div class="form row">
         <form class="form-horizontal col-sm-offset-3 col-md-offset-3" id="register_form">
-            <h3 class="form-title">Login to your account</h3>
+            <h1 class="form-title">创建账号</h1>
             <div class="col-sm-9 col-md-9">
                 <div class="form-group">
                     <i class="fa fa-user fa-lg"></i>
-                    <input class="form-control required" type="text" placeholder="Username" name="username" autofocus="autofocus"/>
+                    <input class="form-control required" type="text" placeholder="用户名" name="username" autofocus="autofocus"/>
                 </div>
                 <div class="form-group">
                     <i class="fa fa-lock fa-lg"></i>
-                    <input class="form-control required" type="password" placeholder="Password" id="register_password" name="password"/>
+                    <input class="form-control required" type="password" placeholder="密码" id="register_password" name="password"/>
                 </div>
                 <div class="form-group">
                     <i class="fa fa-check fa-lg"></i>
-                    <input class="form-control required" type="password" placeholder="Re-type Your Password" name="rpassword"/>
+                    <input class="form-control required" type="password" placeholder="确认密码" name="rpassword"/>
                 </div>
                 <div class="form-group">
                     <i class="fa fa-envelope fa-lg"></i>
-                    <input class="form-control eamil" type="text" placeholder="Email" name="email"/>
+                    <input class="form-control eamil" type="text" placeholder="邮箱" name="email"/>
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btn btn-success pull-right" value="Sign Up "/>
