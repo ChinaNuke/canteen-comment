@@ -63,6 +63,11 @@
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-springsecurity5</artifactId>
+        </dependency>
+
         <!--        引入这个模块后，如果只修改了resources里的内容，只需要重新编译，而不需要重新运行 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

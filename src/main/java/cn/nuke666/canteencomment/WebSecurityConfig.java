@@ -32,7 +32,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().permitAll()
                 .and()
             .formLogin()
+                .loginPage("/login")
                 .permitAll()
+                .and()
+            .rememberMe()
+                .tokenValiditySeconds(86400)
+                .key("remember-me-key")
                 .and()
             .logout()
                 .permitAll();

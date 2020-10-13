@@ -58,7 +58,7 @@ public class Comment {
     /**
      * 评价时间
      */
-//    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.DATE)
     private Date commentTime;
 
     public Comment(Long id, User createdBy, Canteen canteen, Integer whichWindow, String foodName, Integer approvals, Integer scoreForPrice, Integer scoreForTaste, String title, String content, Date commentTime) {

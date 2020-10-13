@@ -26,4 +26,18 @@ public class CommentController {
         return "index";
     }
 
+    @GetMapping("create")
+    public String create(Model model) {
+        model.addAttribute("create", true);
+        model.addAttribute("canteens", canteenService.getCanteenList());
+        return "createoredit";
+    }
+
+    @GetMapping("edit")
+    public String edit(Model model) {
+        model.addAttribute("edit", true);
+        model.addAttribute("canteens", canteenService.getCanteenList());
+        return "createoredit";
+    }
+
 }
