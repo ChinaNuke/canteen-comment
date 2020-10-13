@@ -2,6 +2,9 @@ INSERT INTO user(id, username, password, gender, email) VALUES
     (1, 'peng', '123456', '1', '123@123.com'),
     (2, 'another peng', '654321', '1', null);
 
+INSERT INTO role(id, name) VALUES
+    (1, 'ROLE_USER');
+
 INSERT INTO canteen(name) VALUES
     ('黄山KK（北区一楼）'),
     ('大佳一（北区二楼）'),

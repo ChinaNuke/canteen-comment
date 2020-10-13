@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
- * TODO: 解决属性 canteen 的转换，commentTime 的显示
+ * TODO: commentTime 的显示问题
  */
 
 @Entity

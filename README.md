@@ -1,2 +1,2 @@
-# xc-zufang
-工程实训项目——宣城租房系统
+# canteen-comment
+工程实训项目——食堂点评系统

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
@@ -8,23 +8,23 @@
     <meta name="keywords" content="index">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="renderer" content="webkit">
-    <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-    <script src="assets/js/echarts.min.js"></script>
-    <link rel="stylesheet" href="../static/css/amazeui.min.css" />
-    <link rel="stylesheet" href="../static/css/amazeui.datatables.min.css" />
-    <link rel="stylesheet" href="../static/css/app.css">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <script src="../static/js/echarts.min.js" th:src="@{js/echarts.min.js}"></script>
+    <link rel="stylesheet" href="../static/css/amazeui.min.css" th:href="@{css/amazeui.min.css}"/>
+    <link rel="stylesheet" href="../static/css/amazeui.datatables.min.css" th:href="@{css/amazeui.datatables.min.css}"/>
+    <link rel="stylesheet" href="../static/css/app.css" th:href="@{css/app.css}">
     <style>
         body {
             /* 此处如果单页面测试会读取不到图片，运行时正常 */
-            background: url(../static/img/background.jpg) no-repeat;
+            background: url(img/background.jpg) no-repeat;
             background-size: cover;
             font-size: 16px;
         }
     </style>
 </head>
 <body data-type="login">
-<script src="assets/js/theme.js"></script>
+<script src="../static/js/theme.js" th:src="@{js/theme.js}"></script>
 <div class="am-g tpl-g">
 
     <div class="tpl-login">
@@ -34,46 +34,44 @@
                   创建一个新的用户
               </span>
 
-
-            <form class="am-form tpl-form-line-form">
+            <form class="am-form tpl-form-line-form" action="/register" method="post" th:object="${userForm}">
                 <div class="am-form-group">
-                    <input type="text" class="tpl-form-input" id="user-name" placeholder="邮箱">
-
+                    <input type="email" class="tpl-form-input" placeholder="邮箱" th:field="*{email}">
                 </div>
 
                 <div class="am-form-group">
-                    <input type="text" class="tpl-form-input" id="user-name" placeholder="用户名">
+                    <input type="text" class="tpl-form-input" placeholder="用户名" th:field="*{username}">
                 </div>
 
                 <div class="am-form-group">
-                    <input type="password" class="tpl-form-input" id="user-name" placeholder="请输入密码">
+                    <input type="password" class="tpl-form-input" placeholder="请输入密码" th:field="*{password}">
                 </div>
 
                 <div class="am-form-group">
-                    <input type="password" class="tpl-form-input" id="user-name" placeholder="再次输入密码">
+                    <input type="password" class="tpl-form-input" placeholder="再次输入密码" th:field="*{passwordConfirm}">
                 </div>
 
-                <div class="am-form-group tpl-login-remember-me">
-                    <input id="remember-me" type="checkbox">
-                    <label for="remember-me">
+<!--                <div class="am-form-group tpl-login-remember-me">-->
+<!--                    <input id="remember-me" type="checkbox">-->
+<!--                    <label for="remember-me">-->
+<!--                        我已阅读并同意 <a href="javascript:;">《用户注册协议》</a>-->
+<!--                    </label>-->
 
-                        我已阅读并同意 <a href="javascript:;">《用户注册协议》</a>
-                    </label>
-
-                </div>
-
+<!--                </div>-->
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
 
                 <div class="am-form-group">
-
-                    <button type="button" class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn">提交</button>
-
+                    <button type="submit"
+                            class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn">注册
+                    </button>
                 </div>
             </form>
         </div>
     </div>
 </div>
-<script src="assets/js/amazeui.min.js"></script>
-<script src="assets/js/app.js"></script>
+
+<script src="../static/js/amazeui.min.js" th:src="@{js/amazeui.min.js}"></script>
+<script src="../static/js/app.js" th:src="@{js/app.js}"></script>
 
 </body>
 
