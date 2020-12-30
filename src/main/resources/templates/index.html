@@ -69,12 +69,17 @@
                     <!-- 欢迎语 -->
                     <li class="am-text-sm tpl-header-navbar-welcome">
                         <a href="javascript:;" th:text="|欢迎你, ${#authentication.name}|">欢迎你, auth</a>
+                        <form th:action="@{/logout}" method="post">
+                            <input type="submit" class="btn" value="退出"/>
+                        </form>
                     </li>
                     <!-- 退出 -->
                     <li class="am-text-sm">
-                        <a href="login.html" th:href="@{/logout}">
+                        <!--
+                        <a href="" th:href="@{/logout}">
                             <span class="am-icon-sign-out"></span> 退出
                         </a>
+                        -->
                     </li>
                 </ul>
             </div>
