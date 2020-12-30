@@ -33,11 +33,11 @@
 <main role="main" class="container">
     <div class="mb-3">
         <h4 class="mb-3">创建评价</h4>
-        <form class="needs-validation" novalidate method="post" th:action="@{/create}">
+        <form class="needs-validation" novalidate method="post" th:action="@{/create}" th:object="${commentDtoForm}">
             <div class="row">
                 <div class="col-md-4 mb-3">
                     <label for="selectCanteen">餐厅</label>
-                    <select class="custom-select" id="selectCanteen" required>
+                    <select class="custom-select" id="selectCanteen" th:field="*{canteen}" required>
                         <option selected disabled value="">选择餐厅</option>
                         <option th:each="c:${canteens}" th:value="${c.id}" th:text="${c.name}">黄山KK</option>
                     </select>
@@ -45,12 +45,12 @@
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="inputWindow">窗口<span class="text-muted">（可选）</span></label>
-                    <input type="number" class="form-control" id="inputWindow" placeholder="菜品所在窗口号" min="1" max="40">
+                    <input type="number" class="form-control" id="inputWindow" placeholder="菜品所在窗口号" min="1" max="40" th:field="*{whichWindow}">
                     <div class="invalid-feedback">请输入要评价的窗口号</div>
                 </div>
                 <div class="col-md-5 mb-3">
                     <label for="inputFood">菜品</label>
-                    <input type="text" class="form-control" id="inputFood" placeholder="菜品的名称" required>
+                    <input type="text" class="form-control" id="inputFood" placeholder="菜品的名称" th:field="*{foodName}" required>
                     <div class="invalid-feedback">请输入菜品名称</div>
                 </div>
             </div>
@@ -58,12 +58,12 @@
             <div class="row">
                 <div class="col-md-4 mb-3">
                     <label for="scoreForTaste">味道评分</label>
-                    <input type="number" class="form-control" id="scoreForTaste" placeholder="对味道的评分（1-5分）" min="1" max="5" required>
+                    <input type="number" class="form-control" id="scoreForTaste" placeholder="对味道的评分（1-5分）" min="1" max="5" th:field="*{scoreForTaste}" required>
                     <div class="invalid-feedback">请输入对菜品味道的评分（1-5分）</div>
                 </div>
                 <div class="col-md-4 mb-3">
                     <label for="scoreForPrice">价格评分</label>
-                    <input type="number" class="form-control" id="scoreForPrice" placeholder="对价格的评分（1-5分）" min="1" max="5" required>
+                    <input type="number" class="form-control" id="scoreForPrice" placeholder="对价格的评分（1-5分）" min="1" max="5" th:field="*{scoreForPrice}" required>
                     <div class="invalid-feedback">请输入对菜品价格的评分（1-5分）</div>
                 </div>
             </div>
@@ -72,13 +72,13 @@
 
             <div class="mb-3">
                 <label for="title">评价标题</label>
-                <input type="text" class="form-control" id="title" placeholder="评价标题" required>
+                <input type="text" class="form-control" id="title" placeholder="评价标题" th:field="*{title}" required>
                 <div class="invalid-feedback">请输入本条评价的标题</div>
             </div>
 
             <div class="mb-3">
                 <label for="content">评价内容</label>
-                <textarea class="form-control" id="content" rows="5" placeholder="评价正文内容" required></textarea>
+                <textarea class="form-control" id="content" rows="5" placeholder="评价正文内容" th:field="*{content}" required></textarea>
                 <div class="invalid-feedback">请输入评价内容</div>
             </div>
 
