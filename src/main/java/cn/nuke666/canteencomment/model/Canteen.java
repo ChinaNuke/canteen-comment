@@ -8,7 +8,7 @@ public class Canteen {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(nullable = false)
     private String name;
@@ -16,7 +16,7 @@ public class Canteen {
     @OneToMany(mappedBy = "canteen")
     private Set<Comment> comments;
 
-    public Canteen(Integer id, String name) {
+    public Canteen(Long id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -25,11 +25,11 @@ public class Canteen {
 
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

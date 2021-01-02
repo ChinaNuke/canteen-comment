@@ -356,11 +356,11 @@ ul.tpl-dropdown-content .tpl-dropdown-menu-messages-item .menu-messages-content 
   font-size: 16px;
 }
 .sidebar-nav-link {
-  color: #fff;
+  color: #51bbec;
 }
 .sidebar-nav-link a {
   display: block;
-  color: #868E8E;
+  color: #1d1e1e;
   padding: 10px 17px;
   border-left: #282d2f 3px solid;
   font-size: 14px;
@@ -369,10 +369,11 @@ ul.tpl-dropdown-content .tpl-dropdown-menu-messages-item .menu-messages-content 
 .sidebar-nav-link a.active {
   cursor: pointer;
   border-left: #1CA2CE 3px solid;
-  color: #fff;
+  color: #51bbec;
 }
 .sidebar-nav-link a:hover {
-  color: #fff;
+  color: #51bbec;
+  text-decoration: none;
 }
 .tpl-content-wrapper {
   transition: all 0.4s ease-in-out;

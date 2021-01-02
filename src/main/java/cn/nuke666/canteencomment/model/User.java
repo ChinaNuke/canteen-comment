@@ -19,7 +19,7 @@ public class User {
     @Transient
     private String passwordConfirm;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;
 
     private String gender;
@@ -34,6 +34,12 @@ public class User {
         this.username = username;
         this.password = password;
         this.gender = gender;
+        this.email = email;
+    }
+
+    public User(String username, String password, String email) {
+        this.username = username;
+        this.password = password;
         this.email = email;
     }
 

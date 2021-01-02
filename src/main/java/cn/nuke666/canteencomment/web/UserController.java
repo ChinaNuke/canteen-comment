@@ -9,16 +9,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class UserController {
 
     @Autowired
     private UserService userService;
-
-//    @Autowired
-//    private SecurityService securityService;
 
     @GetMapping("/register")
     public String register(Model model) {
@@ -27,23 +23,16 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    @ResponseBody
-    public User register(@ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
+    public String register(@ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             throw new RuntimeException();
         }
         userService.save(userForm);
-        return userForm;
+        return "redirect:/login?registered";
     }
 
     @GetMapping("/login")
-    public String login(Model model, String error, String logout) {
-        if (error != null) {
-            model.addAttribute("error", "Your username and password is invalid.");
-        }
-        if (logout != null) {
-            model.addAttribute("message", "You have beed logged out successfully.");
-        }
+    public String login(Model model, String error, String logout, String registered) {
         return "login";
     }
 
